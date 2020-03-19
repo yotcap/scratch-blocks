@@ -299,6 +299,7 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
   // Prompt the user to enter a name for the variable
   Blockly.prompt(newMsg, '',
       function(text, additionalVars, variableOptions) {
+        console.log(text, additionalVars, variableOptions);
         variableOptions = variableOptions || {};
         var scope = variableOptions.scope;
         var isLocal = (scope === 'local') || false;

@@ -43,7 +43,7 @@ Blockly.Blocks['motion_movesteps'] = {
         }
       ],
       "category": Blockly.Categories.motion,
-      "extensions": ["colours_motion", "shape_statement"]
+      "extensions": ["colours_motion", "shape_statement"]   // colours 块的颜色，  shape_statement 块的形状
     });
   }
 };
