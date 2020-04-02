@@ -37,6 +37,9 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
         '</shadow>' +
       '</value>' +
     '</block>' +
+    // motion_turnright 是已经定义好的块
+    // value标签中的 name，表示变量名，scratch-vm 中会用到
+    // shadow 标签表示默认值
     '<block type="motion_turnright" id="motion_turnright">' +
       '<value name="DEGREES">' +
         '<shadow type="math_number">' +
@@ -521,6 +524,8 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
   '<category name="%{BKY_CATEGORY_VARIABLES}" id="data" colour="#FF8C1A" secondaryColour="#DB6E00" custom="VARIABLE">' +
   '</category>' +
   '<category name="%{BKY_CATEGORY_MYBLOCKS}" id="more" colour="#FF6680" secondaryColour="#FF4D6A" custom="PROCEDURE">' +
+  '</category>' +
+  '<category name="%{BKY_CATEGORY_MACHINE}" id="MACHINE" colour="#ff0000" secondaryColour="#ffcccc" custom="MACHINE">' +
   '</category>' +
   '<category name="Extensions" id="extensions" colour="#FF6680" secondaryColour="#FF4D6A" ' +
     'iconURI="../media/extensions/wedo2-block-icon.svg" showStatusButton="true">' +

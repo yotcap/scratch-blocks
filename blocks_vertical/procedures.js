@@ -88,6 +88,8 @@ Blockly.ScratchBlocks.ProcedureUtils.definitionMutationToDom = function(
 /**
  * Parse XML to restore the (non-editable) name and arguments of a
  * procedures_prototype block or a procedures_declaration block.
+ *
+ * 解析 XML 用来恢复 procedure_prototype 块或 procedure_declaration 块的（不可编辑）的名称和参数。
  * @param {!Element} xmlElement XML storage element.
  * @this Blockly.Block
  */
@@ -421,6 +423,7 @@ Blockly.ScratchBlocks.ProcedureUtils.populateArgumentOnCaller_ = function(type,
 /**
  * Populate the argument by attaching the correct argument reporter to the given
  * input.
+ * 通过将正确的参数 reporter 附加到给定的输入来填充参数。
  * @param {string} type One of 'b' (boolean), 's' (string) or 'n' (number).
  * @param {number} index The index of this argument into the argument ID and
  *     argument display name arrays.
@@ -809,6 +812,7 @@ Blockly.Blocks['procedures_call'] = {
   updateDisplay_: Blockly.ScratchBlocks.ProcedureUtils.updateDisplay_,
 
   // Exist on all three blocks, but have different implementations.
+  // 在三个块中都有实现，但都有不同的表现。
   mutationToDom: Blockly.ScratchBlocks.ProcedureUtils.callerMutationToDom,
   domToMutation: Blockly.ScratchBlocks.ProcedureUtils.callerDomToMutation,
   populateArgument_: Blockly.ScratchBlocks.ProcedureUtils.populateArgumentOnCaller_,
@@ -859,6 +863,7 @@ Blockly.Blocks['procedures_prototype'] = {
 Blockly.Blocks['procedures_declaration'] = {
   /**
    * The root block in the procedure declaration editor.
+   * procedure 声明编辑器中的 root block
    * @this Blockly.Block
    */
   init: function() {
@@ -866,6 +871,7 @@ Blockly.Blocks['procedures_declaration'] = {
       "extensions": ["colours_more", "shape_statement"]
     });
     /* Data known about the procedure. */
+    /* procedure 的已知数据 */
     this.procCode_ = '';
     this.displayNames_ = [];
     this.argumentIds_ = [];

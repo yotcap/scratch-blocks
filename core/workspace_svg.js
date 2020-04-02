@@ -32,6 +32,7 @@ goog.require('Blockly.Colours');
 goog.require('Blockly.ConnectionDB');
 goog.require('Blockly.constants');
 goog.require('Blockly.DataCategory');
+goog.require('Blockly.MachineDategory');
 goog.require('Blockly.DropDownDiv');
 goog.require('Blockly.Events.BlockCreate');
 goog.require('Blockly.Gesture');
@@ -115,6 +116,7 @@ Blockly.WorkspaceSvg = function(options, opt_blockDragSurface, opt_wsDragSurface
       Blockly.DataCategory);
   this.registerToolboxCategoryCallback(Blockly.PROCEDURE_CATEGORY_NAME,
       Blockly.Procedures.flyoutCategory);
+  this.registerToolboxCategoryCallback(Blockly.MACHINE_CATEGORY_NAME, Blockly.MachineDategory);
 };
 goog.inherits(Blockly.WorkspaceSvg, Blockly.Workspace);
 
@@ -1109,6 +1111,7 @@ Blockly.WorkspaceSvg.prototype.pasteWorkspaceComment_ = function(xmlComment) {
 
 /**
  * Refresh the toolbox unless there's a drag in progress.
+ * 除非正在进行拖动事件，否则刷新 toolbox。
  * @private
  */
 Blockly.WorkspaceSvg.prototype.refreshToolboxSelection_ = function() {
@@ -1154,6 +1157,7 @@ Blockly.WorkspaceSvg.prototype.deleteVariableById = function(id) {
 /**
  * Create a new variable with the given name.  Update the flyout to show the new
  *     variable immediately.
+ * 根据给定的值创建变量，之后立即更新 flyout 用于显示新建的变量。
  * @param {string} name The new variable's name.
  * @param {string=} opt_type The type of the variable like 'int' or 'string'.
  *     Does not need to be unique. Field_variable can filter variables based on
@@ -2111,6 +2115,11 @@ Blockly.WorkspaceSvg.prototype.clear = function() {
  * <button text="create variable" callbackKey="CREATE_VARIABLE"></button>
  * should be matched by a call to
  * registerButtonCallback("CREATE_VARIABLE", yourCallbackFunction).
+ *
+ * 根据给定的 key 值注册一个回调方法，用于监听点击 flyout 中的按钮和标签。
+ * 例如：用 xml 定义了一个按钮
+ * <button text="create variable" callbackKey="CREATE_VARIABLE"></button>
+ * 应该被 registerButtonCallback("CREATE_VARIABLE", yourCallbackFunction) 关联的方法捕获。
  * @param {string} key The name to use to look up this function.
  * @param {function(!Blockly.FlyoutButton)} func The function to call when the
  *     given button is clicked.

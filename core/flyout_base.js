@@ -463,6 +463,8 @@ Blockly.Flyout.prototype.hide = function() {
 
 /**
  * Show and populate the flyout.
+ *
+ * 「 flyout 初始化、添加拓展和添加块都会调用此方法 」
  * @param {!Array|string} xmlList List of blocks to show.
  *     Variables and procedures have a custom set of blocks.
  */
@@ -480,6 +482,8 @@ Blockly.Flyout.prototype.show = function(xmlList) {
     // Handle dynamic categories, represented by a name instead of a list of XML.
     // Look up the correct category generation function and call that to get a
     // valid XML list.
+    // 处理动态的类别，以 name 表示而不是 XML 列表表示。
+    // 查找正确的类别，并调用它来获得有效的 XML 列表。
     if (typeof xml === 'string') {
       var fnToApply = this.workspace_.targetWorkspace.getToolboxCategoryCallback(
           xmlList[i]);
@@ -488,6 +492,9 @@ Blockly.Flyout.prototype.show = function(xmlList) {
       // We use splice to insert at index i, and remove a single element
       // (the placeholder string). Because the spread operator (...) is not
       // available, use apply and concat the array.
+      // 在列表中间插入新的列表块。
+      // 使用 splice 在索引为 i 处插入，并删除单个元素（placeholder）。
+      // 因为 es6 的拓展运算符不可用，所以使用 apply 和 concat 代替。
       xmlList.splice.apply(xmlList, [i, 1].concat(newList));
       xml = xmlList[i];
     }

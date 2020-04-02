@@ -20,6 +20,7 @@
 
 /**
  * @fileoverview Data Flyout components including variable and list blocks.
+ * @fileoverview Flyout 中变量和块列表的数据
  * @author marisaleung@google.com (Marisa Leung)
  */
 'use strict';
@@ -37,6 +38,7 @@ goog.require('Blockly.Workspace');
 
 /**
  * Construct the blocks required by the flyout for the variable category.
+ * 为变量类别构造 flyout 所需的块。
  * @param {!Blockly.Workspace} workspace The workspace containing variables.
  * @return {!Array.<!Element>} Array of XML block elements.
  */
@@ -62,6 +64,7 @@ Blockly.DataCategory = function(workspace) {
   }
 
   // Now add list variables to the flyout
+  // 现在添加一个变量列表至 flyout
   Blockly.DataCategory.addCreateButton(xmlList, workspace, 'LIST');
   variableModelList = workspace.getVariablesOfType(Blockly.LIST_VARIABLE_TYPE);
   variableModelList.sort(Blockly.VariableModel.compareByName);
@@ -103,11 +106,13 @@ Blockly.DataCategory.addDataVariable = function(xmlList, variable) {
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_variable', 'VARIABLE');
   // In the flyout, this ID must match variable ID for monitor syncing reasons
+  // 在 flyout 中，由于监视器同步的原因，此 ID 必须要与变量 ID 相匹配。
   xmlList[xmlList.length - 1].setAttribute('id', variable.getId());
 };
 
 /**
  * Construct and add a data_setvariableto block to xmlList.
+ * 构建并添加一个 data_setvariableto 块至 xmlList
  * @param {!Array.<!Element>} xmlList Array of XML block elements.
  * @param {?Blockly.VariableModel} variable Variable to select in the field.
  */
@@ -405,6 +410,7 @@ Blockly.DataCategory.addCreateButton = function(xmlList, workspace, type) {
 /**
  * Construct a variable block with the given variable, blockType, and optional
  *     value tags. Add the variable block to the given xmlList.
+ * 使用给定的 variable、blockType 和可选值标签构建一个变量块。添加变量块至给定的 xmlList。
  * @param {!Array.<!Element>} xmlList Array of XML block elements.
  * @param {?Blockly.VariableModel} variable Variable to select in the field.
  * @param {string} blockType Type of block. For example, 'data_hidelist' or

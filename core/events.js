@@ -171,6 +171,7 @@ Blockly.Events.FIRE_QUEUE_ = [];
 
 /**
  * Create a custom event and fire it.
+ * 创建一个自定义事件并且触发它。
  * @param {!Blockly.Events.Abstract} event Custom data for event.
  */
 Blockly.Events.fire = function(event) {
@@ -333,6 +334,7 @@ Blockly.Events.getDescendantIds_ = function(block) {
 
 /**
  * Decode the JSON into an event.
+ * 解析 json 并添加至事件
  * @param {!Object} json JSON representation.
  * @param {!Blockly.Workspace} workspace Target workspace for event.
  * @return {!Blockly.Events.Abstract} The event represented by the JSON.

@@ -269,7 +269,8 @@ Blockly.Categories = {
   "control": "control",
   "sensing": "sensing",
   "operators": "operators",
-  "more": "more"
+  "more": "more",
+  'machine': 'MACHINE'
 };
 
 /**
@@ -307,6 +308,8 @@ Blockly.VARIABLE_CATEGORY_NAME = 'VARIABLE';
  * @const {string}
  */
 Blockly.PROCEDURE_CATEGORY_NAME = 'PROCEDURE';
+
+Blockly.MACHINE_CATEGORY_NAME = 'MACHINE';
 
 /**
  * String for use in the dropdown created in field_variable.
@@ -348,6 +351,9 @@ Blockly.BROADCAST_MESSAGE_VARIABLE_TYPE = 'broadcast_msg';
  * @const {string}
  */
 Blockly.LIST_VARIABLE_TYPE = 'list';
+
+Blockly.MACHINE_VARIABLE_TYPE = 'machine_var_type';
+Blockly.MACHINE_VARIABLE_TYPE_RES = 'machine_var_type_res';
 
 // TODO (#1251) Replace '' below with 'scalar', and start using this constant
 // everywhere.

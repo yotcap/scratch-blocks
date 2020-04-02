@@ -34,6 +34,8 @@ goog.require('goog.string');
 /**
  * Class for a variable model.
  * Holds information for the variable including name, ID, and type.
+ * 变量 model 的类
+ * 包含变量的信息，包括变量名、ID 和 type。
  * @param {!Blockly.Workspace} workspace The variable's workspace.
  * @param {!string} name The name of the variable. This must be unique across
  *     each variable type.

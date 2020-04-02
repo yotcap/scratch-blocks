@@ -218,12 +218,13 @@ Blockly.ScratchBlocks.VerticalExtensions.SCRATCH_EXTENSION = function() {
 };
 /**
  * Register all extensions for scratch-blocks.
+ * 给 SB 注册所有拓展。
  * @package
  */
 Blockly.ScratchBlocks.VerticalExtensions.registerAll = function() {
   var categoryNames =
       ['control', 'data', 'data_lists', 'sounds', 'motion', 'looks', 'event',
-        'sensing', 'pen', 'operators', 'more'];
+        'sensing', 'pen', 'operators', 'more', 'machine'];
   // Register functions for all category colours.
   for (var i = 0; i < categoryNames.length; i++) {
     var name = categoryNames[i];

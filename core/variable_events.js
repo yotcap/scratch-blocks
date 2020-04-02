@@ -76,6 +76,7 @@ Blockly.Events.VarBase.prototype.fromJson = function(json) {
 
 /**
  * Class for a variable creation event.
+ * 变量创建事件的类
  * @param {Blockly.VariableModel} variable The created variable.
  *     Null for a blank event.
  * @extends {Blockly.Events.VarBase}

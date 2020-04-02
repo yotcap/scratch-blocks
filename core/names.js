@@ -110,6 +110,7 @@ Blockly.Names.prototype.getNameForUserVariable_ = function(id) {
 
 /**
  * Convert a Blockly entity name to a legal exportable entity name.
+ * 将 Blockly 实体名称转换为合法的可导出实体名称。
  * @param {string} name The Blockly entity name (no constraints).
  * @param {string} type The type of entity in Blockly
  *     ('VARIABLE', 'PROCEDURE', 'BUILTIN', etc...).

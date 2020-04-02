@@ -350,3 +350,7 @@ Blockly.Msg.NEW_BROADCAST_MESSAGE = 'New message';
 Blockly.Msg.NEW_BROADCAST_MESSAGE_TITLE = 'New message name:';
 Blockly.Msg.BROADCAST_MODAL_TITLE = 'New Message';
 Blockly.Msg.DEFAULT_BROADCAST_MESSAGE_NAME = 'message1';
+
+// Machine Message
+Blockly.Msg.MACHINE_VAR_NAME = '分类';
+Blockly.Msg.MACHINE_BTN_NAME = '创建模型';

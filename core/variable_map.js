@@ -182,6 +182,7 @@ Blockly.VariableMap.prototype.createVariable = function(name,
     opt_type, opt_id, opt_isLocal, opt_isCloud) {
   var variable = this.getVariable(name, opt_type);
   if (variable) {
+    // 已存在相同名的变量
     if (opt_id && variable.getId() != opt_id) {
       // There is a variable conflict. Variable conflicts should be eliminated
       // in the scratch-vm, or before we get to this point,
@@ -194,6 +195,7 @@ Blockly.VariableMap.prototype.createVariable = function(name,
     return variable;
   }
   if (opt_id) {
+    // 已存在存在相同 id 的变量
     variable = this.getVariableById(opt_id);
     if (variable) {
       console.warn('Variable id, "' + opt_id + '", is already in use.');

@@ -20,6 +20,7 @@
 
 /**
  * @fileoverview Utility functions for handling variables.
+ * @fileoverview 用于处理变量的实用工具方法。
  * @author fraser@google.com (Neil Fraser)
  */
 'use strict';
@@ -266,6 +267,7 @@ Blockly.Variables.realizePotentialVar = function(varName, varType, potentialVarW
 
 /**
  * Create a new variable on the given workspace.
+ * 在 workspace 中创建一个新的变量。
  * @param {!Blockly.Workspace} workspace The workspace on which to create the
  *     variable.
  * @param {function(?string=)=} opt_callback An optional callback function to act
@@ -277,6 +279,8 @@ Blockly.Variables.realizePotentialVar = function(varName, varType, potentialVarW
 Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
   // Decide on a modal message based on the opt_type. If opt_type was not
   // provided, default to the original message for scalar variables.
+  // 根据 opt_type 确定 modal 信息。
+  // 如果 opt_type 没有声明，默认为 scalar 变量的默认信息。
   var newMsg, modalTitle;
   if (opt_type == Blockly.BROADCAST_MESSAGE_VARIABLE_TYPE) {
     newMsg = Blockly.Msg.NEW_BROADCAST_MESSAGE_TITLE;
@@ -295,9 +299,10 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
     modalTitle = Blockly.Msg.VARIABLE_MODAL_TITLE;
   }
   var validate = Blockly.Variables.nameValidator_.bind(null, opt_type);
-
   // Prompt the user to enter a name for the variable
+  // Prompt 接收用户给变量的命名
   Blockly.prompt(newMsg, '',
+      // text--新的变量名   additionVars--已经存在的变量[数组]
       function(text, additionalVars, variableOptions) {
         variableOptions = variableOptions || {};
         var scope = variableOptions.scope;
@@ -311,6 +316,7 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
         var validatedText = validate(text, workspace, additionalVarNames, isCloud, opt_callback);
         if (validatedText) {
           // The name is valid according to the type, create the variable
+          // 根据类型确定名称是有效的，创建变量
           var potentialVarMap = workspace.getPotentialVariableMap();
           var variable;
           // This check ensures that if a new variable is being created from a
@@ -318,6 +324,9 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
           // a potential variable, that potential variable gets turned into a
           // real variable and thus there aren't duplicate options in the field_variable
           // dropdown.
+          // 这个检查是确保了如果一个新的变量是从一个已经有了与潜在变量相同的名字和类型的 workspace 中创建的，
+          // 那么这个潜在变量就会变成为一个真正的变量。
+          // 这样在 field_variable 下拉菜单中就不会有重复地选项。
           if (potentialVarMap && opt_type) {
             variable = Blockly.Variables.realizePotentialVar(validatedText,
                 opt_type, workspace, false);
@@ -329,6 +338,7 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
           var flyout = workspace.isFlyout ? workspace : workspace.getFlyout();
           var variableBlockId = variable.getId();
           if (flyout.setCheckboxState) {
+            // 新建变量后勾选变量的复选框
             flyout.setCheckboxState(variableBlockId, true);
           }
 
@@ -337,6 +347,7 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
           }
         } else {
           // User canceled prompt without a value.
+          // 用户没有输入值关闭了 prompt 的情况
           if (opt_callback) {
             opt_callback(null);
           }
@@ -349,6 +360,7 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
  * of type. This is so that functions like Blockly.Variables.createVariable and
  * Blockly.Variables.renameVariable can call a single function (with a single
  * type signature) to validate the user-provided name for a variable.
+ * 这个方法提供了一个公共接口，用于对未知类型的变量名称验证。
  * @param {string} type The type of the variable for which the provided name
  *     should be validated.
  * @param {string} text The user-provided text that should be validated as a

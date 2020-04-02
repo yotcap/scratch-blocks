@@ -48,6 +48,8 @@ Blockly.Blocks['data_variable'] = {
       ],
       "category": Blockly.Categories.data,
       "checkboxInFlyout": true,
+      // 在 /blocks-vertical/vertical_extensions.js 中定义好的拓展继承项
+      // colours 块的颜色，  shape_statement 块的形状
       "extensions": ["contextMenu_getVariableBlock", "colours_data", "output_string"]
     });
   }
@@ -502,6 +504,8 @@ Blockly.Blocks['data_hidelist'] = {
 /**
  * Mixin to add a context menu for a data_variable block.  It adds one item for
  * each variable defined on the workspace.
+ * 为 data_variable 块添加右键菜单。
+ * 将为 fieldName 为 VARIABLE 的变量都添加右键菜单。
  * @mixin
  * @augments Blockly.Block
  * @package

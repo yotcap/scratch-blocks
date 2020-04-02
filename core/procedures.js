@@ -41,6 +41,7 @@ goog.require('Blockly.Workspace');
 /**
  * Constant to separate procedure names from variables and generated functions
  * when running generators.
+ * 用于在运行 generators 时将 procedure 名称与变量和生成的函数分开。
  * @deprecated Use Blockly.PROCEDURE_CATEGORY_NAME
  */
 Blockly.Procedures.NAME_TYPE = Blockly.PROCEDURE_CATEGORY_NAME;
@@ -215,6 +216,7 @@ Blockly.Procedures.rename = function(name) {
 
 /**
  * Construct the blocks required by the flyout for the procedure category.
+ * 为 procedure 类构造 flyout 所需要的块。
  * @param {!Blockly.Workspace} workspace The workspace contianing procedures.
  * @return {!Array.<!Element>} Array of XML block elements.
  */
@@ -386,6 +388,7 @@ Blockly.Procedures.newProcedureMutation = function() {
 
 /**
  * Callback to create a new procedure custom command block.
+ * 回调方法创建了一个新的自定义命令块的积木。
  * @param {!Blockly.Workspace} workspace The workspace to create the new procedure on.
  * @private
  */
@@ -398,6 +401,7 @@ Blockly.Procedures.createProcedureDefCallback_ = function(workspace) {
 
 /**
  * Callback factory for adding a new custom procedure from a mutation.
+ * 回调方法通过 mutation 创建了一个新的自定义积木块。
  * @param {!Blockly.Workspace} workspace The workspace to create the new procedure on.
  * @return {function(?Element)} callback for creating the new custom procedure.
  * @private
@@ -417,7 +421,7 @@ Blockly.Procedures.createProcedureCallbackFactory_ = function(workspace) {
       var blockDom = Blockly.Xml.textToDom(blockText).firstChild;
       Blockly.Events.setGroup(true);
       var block = Blockly.Xml.domToBlock(blockDom, workspace);
-      var scale = workspace.scale; // To convert from pixel units to workspace units
+      var scale = workspace.scale; // To convert from pixel units to workspace units    将像素单元转变为 workspace 单元
       // Position the block so that it is at the top left of the visible workspace,
       // padded from the edge by 30 units. Position in the top right if RTL.
       var posX = -workspace.scrollX;

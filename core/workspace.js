@@ -333,6 +333,7 @@ Blockly.Workspace.prototype.renameVariableById = function(id, newName) {
 
 /**
  * Create a variable with a given name, optional type, and optional ID.
+ * 根据给定的名字、选项和选项ID创建一个变量。
  * @param {!string} name The name of the variable. This must be unique across
  *     each variable type.
  * @param {?string} opt_type The type of the variable like 'int' or 'string'.

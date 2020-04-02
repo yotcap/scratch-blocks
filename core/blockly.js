@@ -26,6 +26,7 @@
 
 /**
  * The top level namespace used to access the Blockly library.
+ * 用于访问 Blockly 库的根作用域。
  * @namespace Blockly
  **/
 goog.provide('Blockly');
@@ -55,6 +56,7 @@ goog.require('Blockly.FieldVerticalSeparator');
 goog.require('Blockly.Generator');
 goog.require('Blockly.Msg');
 goog.require('Blockly.Procedures');
+goog.require('Blockly.Machine');
 goog.require('Blockly.ScratchMsgs');
 goog.require('Blockly.Toolbox');
 goog.require('Blockly.Touch');
@@ -388,6 +390,8 @@ Blockly.confirm = function(message, callback) {
  * alternatives to the modal browser window. Built-in browser prompts are
  * often used for better text input experience on mobile device. We strongly
  * recommend testing mobile when overriding this.
+ * window.prompt() 的包装器，开发者可以重写此方法用来提供自定义的 modal。
+ * 原生的 prompts 通常用于在移动端提供更好的输入体验。我们强烈建议重写此方法时做好在移动端上的测试。
  * @param {string} message The message to display to the user.
  * @param {string} defaultValue The value to initialize the prompt with.
  * @param {!function(string)} callback The callback for handling user response.
@@ -399,6 +403,7 @@ Blockly.prompt = function(message, defaultValue, callback, _opt_title,
     _opt_varType) {
   // opt_title and opt_varType are unused because we only need them to pass
   // information to the scratch-gui, which overwrites this function
+  // opt_title 和 opt_varType 没有被使用，因为我们只需要它们给 SG 传递一些信息，并且会被 SG 覆盖此方法。
   callback(window.prompt(message, defaultValue));
 };
 
